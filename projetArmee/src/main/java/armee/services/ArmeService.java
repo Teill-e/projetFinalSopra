@@ -71,5 +71,9 @@ public class ArmeService {
 	armeRepo.delete(arme);	
 	}
 	
+	public void delete(Long id) {
+		armeRepo.deleteById(id);	
+		}
+	
 }
 
