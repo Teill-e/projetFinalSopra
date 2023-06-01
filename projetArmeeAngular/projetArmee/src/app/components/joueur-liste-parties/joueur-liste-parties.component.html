@@ -1,0 +1,20 @@
+<h1>listes des parties</h1>
+<table class="table">
+  <tr>
+    <th>id:</th>
+    <th>date:</th>
+    <th>fin:</th>
+  </tr>
+  <tr *ngFor="let partie of obsParties | async">
+    <td>{{ partie.id }}</td>
+    <td>{{ partie.date }}</td>
+    <td>{{ partie.fin }}</td>
+    <td></td>
+    <td>
+      <button (click)="deletePartie(partie.id!)" class="btn btn-outline-danger">
+        supprimer
+      </button>
+    </td>
+  </tr>
+</table>
+<a class="btn btn-link" routerLink="/partie/edit">nouveau fournisseur</a>

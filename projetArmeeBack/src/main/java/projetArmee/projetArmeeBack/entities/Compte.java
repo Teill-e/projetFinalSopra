@@ -36,6 +36,9 @@ public abstract class Compte implements UserDetails{
 	private String login;
 	@Column(name="compte_password",nullable=false, length=150)
 	private String password;
+//	@Column(name = "account_role")
+//	@JsonView(JsonViews.Base.class)
+//	private Role role;
 	
 	public Compte() {
 	}
@@ -44,6 +47,13 @@ public abstract class Compte implements UserDetails{
 		this.login = login;
 		this.password = password;
 	}
+
+//	public Compte(String login, String password, Role role) {
+//		super();
+//		this.login = login;
+//		this.password = password;
+//		this.role = role;
+//	}
 
 	public Long getId() {
 		return id;

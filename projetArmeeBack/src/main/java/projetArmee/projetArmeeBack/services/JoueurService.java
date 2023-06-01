@@ -6,25 +6,23 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import projetArmee.projetArmeeBack.entities.Compte;
 import projetArmee.projetArmeeBack.entities.Joueur;
 import projetArmee.projetArmeeBack.entities.Partie;
 import projetArmee.projetArmeeBack.exceptions.JoueurException;
 import projetArmee.projetArmeeBack.repositories.JoueurRepository;
 import projetArmee.projetArmeeBack.repositories.PartieRepository;
 
-
-
 @Service
 public class JoueurService {
-	
+
 	@Autowired
 	private JoueurRepository joueurRepo;
-	
-	
+	@Autowired
+	private CompteService compteSrv;
 	@Autowired
 	private PartieRepository partieRepo;
-	
-	
+
 	private void checkJoueur(Joueur Joueur) {
 		if (Joueur == null) {
 			throw new JoueurException("Joueur null");
@@ -40,9 +38,10 @@ public class JoueurService {
 		}
 	}
 
-	public Joueur create(Joueur Joueur) {
-		checkJoueur(Joueur);
-		return joueurRepo.save(Joueur);
+	public Joueur create(Joueur joueur) {
+		checkJoueur(joueur);
+		//Compte compte = compteSrv.createJoueur(joueur.getLogin(), joueur.getPassword());
+		return joueurRepo.save(joueur);
 	}
 
 	public Joueur update(Joueur Joueur) {
@@ -51,7 +50,7 @@ public class JoueurService {
 		JoueurEnBase.setLogin(Joueur.getLogin());
 		JoueurEnBase.setPassword(Joueur.getPassword());
 		JoueurEnBase.setListeParties(Joueur.getListeParties());
-		
+
 		return joueurRepo.save(JoueurEnBase);
 	}
 
@@ -61,27 +60,25 @@ public class JoueurService {
 			throw new JoueurException("id inconnu");
 		});
 
-}
+	}
+
 	public List<Joueur> getAll() {
 		return joueurRepo.findAll();
 	}
 
-
 	public void delete(Joueur joueur) {
 		delete(joueur.getId());
 	}
-	
+
 	public void delete(Long id) {
 		Joueur joueur = getById(id);
 		Set<Partie> partiesJoueur = joueur.getListeParties();
 		partieRepo.deleteByJoueur(joueur);
-		/*for (Partie partie : partiesJoueur) {
-			partieRepo.delete(partie);
-		}
-		*/
+		/*
+		 * for (Partie partie : partiesJoueur) { partieRepo.delete(partie); }
+		 */
 		joueurRepo.delete(joueur);
 
 	}
 
-	
 }

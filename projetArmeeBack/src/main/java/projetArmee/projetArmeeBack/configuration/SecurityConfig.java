@@ -20,6 +20,8 @@ public class SecurityConfig {
 				.and()
 				.authorizeRequests()
 					.antMatchers(HttpMethod.OPTIONS).permitAll()
+					.antMatchers(HttpMethod.GET,"/api/compte/login/**").anonymous()
+					.antMatchers(HttpMethod.POST,"/api/compte/inscription").anonymous()
 					.antMatchers(HttpMethod.GET,"/api/auth").authenticated()
 					.antMatchers("/api/joueur").hasAnyRole("JOUEUR","ADMIN")
 					.antMatchers("/api/**").hasAnyRole("ADMIN")

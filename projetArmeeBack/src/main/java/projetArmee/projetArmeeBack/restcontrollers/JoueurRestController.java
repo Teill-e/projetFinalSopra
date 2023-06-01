@@ -23,6 +23,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 import projetArmee.projetArmeeBack.entities.Joueur;
 import projetArmee.projetArmeeBack.entities.jsonViews.JsonViews;
+import projetArmee.projetArmeeBack.services.CompteService;
 import projetArmee.projetArmeeBack.services.JoueurService;
 
 @RestController
@@ -32,6 +33,14 @@ public class JoueurRestController {
 
 	@Autowired
 	private JoueurService joueurSrv;
+	
+	@Autowired
+	private CompteService compteSrv;
+	
+	@GetMapping("/login/{login}")
+	public boolean loginExist(@PathVariable String login){
+		return compteSrv.loginExist(login);
+	}
 	
 	@GetMapping("")
 	@JsonView(JsonViews.Joueur.class)
@@ -45,7 +54,7 @@ public class JoueurRestController {
 		return joueurSrv.getById(id);
 	}
 	
-	@PostMapping("")
+	@PostMapping({ "", "/inscription" })
 	@JsonView(JsonViews.Joueur.class)
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public Joueur create(@Valid @RequestBody Joueur joueur,BindingResult br) {

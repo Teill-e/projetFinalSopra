@@ -9,6 +9,8 @@ import projetArmee.projetArmeeBack.entities.Compte;
 public interface CompteRepository extends JpaRepository<Compte, Long> {
 
 	Optional<Compte> findByLogin(String username);
+
+	boolean existsByLogin(String login);
 	
 	
 	

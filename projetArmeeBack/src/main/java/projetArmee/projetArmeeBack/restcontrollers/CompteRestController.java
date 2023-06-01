@@ -47,6 +47,12 @@ public class CompteRestController {
 		return compteSrv.getById(id);
 	}
 	
+	@GetMapping("/login/{login}")
+	public boolean loginExist(@PathVariable String login){
+		return compteSrv.loginExist(login);
+	}
+	
+	
 	@PostMapping("/admin")
 	@JsonView(JsonViews.Compte.class)
 	@ResponseStatus(code = HttpStatus.CREATED)
@@ -56,7 +62,7 @@ public class CompteRestController {
 		}
 		return compteSrv.create(compte);
 	}
-	@PostMapping("")
+	@PostMapping( "/inscription" )
 	@JsonView(JsonViews.Compte.class)
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public Compte create(@Valid @RequestBody Joueur compte,BindingResult br) {
@@ -66,6 +72,16 @@ public class CompteRestController {
 		return compteSrv.create(compte);
 	}
 	
+	
+	@PostMapping({"/inscription/admin" })
+	@JsonView(JsonViews.Compte.class)
+	@ResponseStatus(code = HttpStatus.CREATED)
+	public Compte create(@Valid @RequestBody Admin compte,BindingResult br) {
+		if(br.hasErrors()) {
+			throw  new ResponseStatusException(HttpStatus.BAD_REQUEST);
+		}
+		return compteSrv.create(compte);
+	}
 	
 	/*@PostMapping("/{login}/{password}")
 	@JsonView(JsonViews.Compte.class)

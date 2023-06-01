@@ -3,11 +3,11 @@ import { Joueur } from './joueur';
 
 export class Partie {
   constructor(
-    date?: Date,
-    fin?: boolean,
-    joueur?: Joueur,
-    compoJoueur?: Composition,
-    compoIA?: Composition,
-    id?: number
+    public date?: Date,
+    public fin?: boolean,
+    public joueur?: Joueur,
+    public compoJoueur?: Composition,
+    public compoIA?: Composition,
+    public id?: number
   ) {}
 }
