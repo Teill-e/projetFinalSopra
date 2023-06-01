@@ -26,7 +26,7 @@ export class LoginComponent {
           'Basic ' + btoa(this.login + ':' + this.password)
         );
         sessionStorage.setItem('compte', JSON.stringify(compte));
-        this.router.navigateByUrl('/home');
+        this.router.navigateByUrl('/accueil');
       },
       error: (err) => {
         this.displayError = true;
