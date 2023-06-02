@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthentificationService } from 'src/app/services/authentification.service';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -12,10 +12,7 @@ export class LoginComponent {
   password = '';
   displayError = false;
 
-  constructor(
-    private authSrv: AuthentificationService,
-    private router: Router
-  ) {}
+  constructor(private authSrv: AuthenticationService, private router: Router) {}
 
   check() {
     this.authSrv.login(this.login, this.password).subscribe({
@@ -25,6 +22,7 @@ export class LoginComponent {
           'token',
           'Basic ' + btoa(this.login + ':' + this.password)
         );
+        //console.log('login');
         sessionStorage.setItem('compte', JSON.stringify(compte));
         this.router.navigateByUrl('/accueil');
       },

@@ -14,6 +14,7 @@ export class JoueurService {
   }
 
   public loginExist(login: string): Observable<boolean> {
+    //console.log(login);
     return this.httpJoueur.get<boolean>(`${JoueurService.URL}/login/${login}`);
   }
 }

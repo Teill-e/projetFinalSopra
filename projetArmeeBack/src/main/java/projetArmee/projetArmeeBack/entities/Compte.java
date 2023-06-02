@@ -32,7 +32,7 @@ public abstract class Compte implements UserDetails{
 	@Column(name="compte_id")
 	private Long id;
 	@JsonView(JsonViews.Base.class)
-	@Column(name="compte_login",nullable=false, length=20)
+	@Column(name="compte_login",nullable=false, length=20,unique =true)
 	private String login;
 	@Column(name="compte_password",nullable=false, length=150)
 	private String password;
@@ -113,7 +113,7 @@ public abstract class Compte implements UserDetails{
 	@JsonView(JsonViews.Base.class)
 	public String getRole() 
 	{
-		return this.getClass().getSimpleName().toUpperCase();
+		return "ROLE_"+this.getClass().getSimpleName().toUpperCase();
 	}
 
 	@Override
@@ -140,6 +140,7 @@ public abstract class Compte implements UserDetails{
 	public boolean isEnabled() {
 		return true;
 	}
+	
 	
 	
 }

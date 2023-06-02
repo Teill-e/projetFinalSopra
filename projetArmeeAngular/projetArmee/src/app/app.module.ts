@@ -4,21 +4,21 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LoginComponent } from './components/login/login.component';
-import { AuthentificationInterceptor } from './interceptors/authentification.interceptor';
+import { AuthenticationInterceptor } from './interceptors/authentication.interceptor';
 import { MenuComponent } from './components/menu/menu.component';
 import { HomeComponent } from './components/home/home.component';
 import { AccueilComponent } from './components/accueil/accueil.component';
 import { InscriptionComponent } from './components/inscription/inscription.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     MenuComponent,
     HomeComponent,
     AccueilComponent,
     InscriptionComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +30,7 @@ import { InscriptionComponent } from './components/inscription/inscription.compo
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: AuthentificationInterceptor,
+      useClass: AuthenticationInterceptor,
       multi: true,
     },
   ],
