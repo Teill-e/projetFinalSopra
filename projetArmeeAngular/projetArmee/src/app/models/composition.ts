@@ -3,9 +3,9 @@ import { Unite } from './unite';
 
 export class Composition {
   constructor(
-    unites?: Set<Unite>,
-    parties?: Set<Partie>,
-    budget?: number,
-    id?: number
+    public unites?: Set<Unite>,
+    public parties?: Set<Partie>,
+    public budget?: number,
+    public id?: number
   ) {}
 }

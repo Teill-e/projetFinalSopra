@@ -1,3 +1,4 @@
+import { Joueur } from './../models/joueur';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -42,5 +43,30 @@ export class AuthenticationService {
 
   public disconnect() {
     sessionStorage.clear();
+  }
+
+  public loginSession(): string {
+    let compte: Compte | undefined = JSON.parse(
+      sessionStorage.getItem('compte')!
+    ) as Compte;
+
+    if (compte && compte.login) {
+      return compte.login;
+    }
+
+    return '';
+  }
+
+  public joueurSession(): Joueur | undefined {
+    let compte: Compte | undefined = JSON.parse(
+      sessionStorage.getItem('compte')!
+    ) as Joueur;
+
+    if (compte) {
+      console.log(compte);
+      return compte;
+    }
+
+    return undefined;
   }
 }

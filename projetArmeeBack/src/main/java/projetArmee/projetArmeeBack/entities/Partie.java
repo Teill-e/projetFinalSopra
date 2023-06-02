@@ -44,6 +44,23 @@ public class Partie {
 
 	
 
+	public Partie(LocalDate date, boolean fin) {
+		super();
+		this.date = date;
+		this.fin = fin;
+	}
+
+
+
+	public Partie(LocalDate date, boolean fin, Joueur joueur) {
+		super();
+		this.date = date;
+		this.fin = fin;
+		this.joueur = joueur;
+	}
+
+
+
 	public Partie(LocalDate date, boolean fin, Joueur joueur, Composition compoJoueur, Composition compoIA) {
 		this.date = date;
 		this.fin = fin;

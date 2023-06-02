@@ -10,6 +10,13 @@ import { HomeComponent } from './components/home/home.component';
 import { AccueilComponent } from './components/accueil/accueil.component';
 import { InscriptionComponent } from './components/inscription/inscription.component';
 import { LoginComponent } from './components/login/login.component';
+import { PartieEditComponent } from './components/partie/partie-edit/partie-edit.component';
+import { JoueurListePartiesComponent } from './components/partie/joueur-liste-parties/joueur-liste-parties.component';
+import { NouvellePartieComponent } from './components/partie/nouvelle-partie/nouvelle-partie.component';
+import { CompositionListeComponent } from './components/composition/composition-liste/composition-liste.component';
+import { CompositionEditComponent } from './components/composition/composition-edit/composition-edit.component';
+import { UnitesListeComponent } from './components/unites/unites-liste/unites-liste.component';
+import { UnitesEditComponent } from './components/unites/unites-edit/unites-edit.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +26,13 @@ import { LoginComponent } from './components/login/login.component';
     AccueilComponent,
     InscriptionComponent,
     LoginComponent,
+    PartieEditComponent,
+    JoueurListePartiesComponent,
+    NouvellePartieComponent,
+    CompositionListeComponent,
+    CompositionEditComponent,
+    UnitesListeComponent,
+    UnitesEditComponent,
   ],
   imports: [
     BrowserModule,

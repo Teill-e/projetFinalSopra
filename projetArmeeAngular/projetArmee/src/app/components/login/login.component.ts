@@ -24,7 +24,7 @@ export class LoginComponent {
         );
         //console.log('login');
         sessionStorage.setItem('compte', JSON.stringify(compte));
-        this.router.navigateByUrl('/accueil');
+        this.router.navigateByUrl('/listeparties');
       },
       error: (err) => {
         this.displayError = true;

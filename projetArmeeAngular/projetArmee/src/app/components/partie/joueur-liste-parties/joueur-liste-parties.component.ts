@@ -9,17 +9,23 @@ import { PartieService } from 'src/app/services/partie.service';
   styleUrls: ['./joueur-liste-parties.component.css'],
 })
 export class JoueurListePartiesComponent implements OnInit {
-  obsParties!: Observable<Partie[]>;
+  parties!: Partie[];
 
   constructor(private partieSrv: PartieService) {}
 
   ngOnInit(): void {
-    this.obsParties = this.partieSrv.getParties();
+    this.listParties();
+  }
+
+  listParties() {
+    this.partieSrv.getParties().subscribe((resultat) => {
+      this.parties = resultat;
+    });
   }
 
   deletePartie(id: number) {
     this.partieSrv.deleteById(id).subscribe(() => {
-      this.obsParties = this.partieSrv.getParties();
+      this.listParties();
     });
   }
 }

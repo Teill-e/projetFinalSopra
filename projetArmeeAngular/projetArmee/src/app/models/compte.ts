@@ -1,8 +1,8 @@
 export class Compte {
   constructor(
-    login?: string,
+    public login?: string,
     password?: string,
     public role?: string,
-    id?: number
+    public id?: number
   ) {}
 }

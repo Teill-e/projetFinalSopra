@@ -4,10 +4,10 @@ import { Composition } from './composition';
 
 export class Unite {
   constructor(
-    armes?: Set<Arme>,
-    prix?: number,
-    armee?: Armee,
-    composition?: Composition,
-    id?: number
+    public armes?: Set<Arme>,
+    public prix?: number,
+    public armee?: Armee,
+    public composition?: Composition,
+    public id?: number
   ) {}
 }
