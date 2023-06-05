@@ -1,6 +1,7 @@
 import { Pays } from './pays';
 import { Unite } from './unite';
 export class Armee {
+  checked: any;
   constructor(
     public pv?: number,
     public moral?: number,

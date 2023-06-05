@@ -15,7 +15,9 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonView;
+
+import projetArmee.projetArmeeBack.entities.jsonViews.JsonViews;
 
 @Entity
 @Table(name="arme")
@@ -25,7 +27,7 @@ public class Arme {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="arme_id")
 	private Long id;
-	@JsonProperty("typeA")
+	@JsonView(JsonViews.Base.class)
 	@Column(name="arme_typeA")
 	@Enumerated(EnumType.STRING)
 	private TypeA typeA;

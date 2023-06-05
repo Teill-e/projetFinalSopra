@@ -19,6 +19,10 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import projetArmee.projetArmeeBack.entities.jsonViews.JsonViews;
+
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "type",discriminatorType = DiscriminatorType.STRING,length = 6)
@@ -28,10 +32,12 @@ public abstract class Armee {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="armee_id")
 	protected Long id;
+	@JsonView(JsonViews.Base.class)
 	@Column(name="armee_pv")
 	protected Integer pv;
 	@Column(name="armee_moral")
 	protected Integer moral;
+	@JsonView(JsonViews.Base.class)
 	@Column(name="armee_pays")
 	@Enumerated(EnumType.STRING)
 	protected Pays pays;

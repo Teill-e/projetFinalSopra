@@ -1,18 +1,31 @@
 <p>unites-liste works!</p>
 <table class="table">
   <tr>
-    <th>unites:</th>
-    <th>parties:</th>
-    <th>budget:</th>
-    <th>budget:</th>
-    <th>arme:</th>
+    <th>Type-armes:</th>
   </tr>
-  <tr *ngFor="let unite of obsUnites | async">
-    <td>{{ unite.armes }}</td>
-    <td>{{ unite.prix }}</td>
-    <td>{{ unite.armee }}</td>
-    <td>{{ unite.composition }}</td>
-    <td>{{ unite.id }}</td>
+  <tr *ngFor="let arme of obsArmes | async">
+    <label>
+      <input
+        type="checkbox"
+        [(ngModel)]="arme.checked"
+        (change)="toggleSelection(arme)"
+      />
+      {{ arme.typeA }}</label
+    >
   </tr>
 </table>
-<a class="btn btn-outline-primary" routerLink="/unites-edit">nv-unite</a>
+<table class="table">
+  <tr>
+    <th>Armees:</th>
+  </tr>
+  <tr *ngFor="let armee of obsArmees | async">
+    <label>
+      <input
+        type="checkbox"
+        [(ngModel)]="armee.checked"
+        (change)="toggleSelectionarme(armee)"
+      />
+      {{ armee.pays }} - {{ armee.pv }}
+    </label>
+  </tr>
+</table>
