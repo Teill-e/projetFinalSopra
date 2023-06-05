@@ -44,6 +44,11 @@ public class Unite {
 	}
 
 	
+	public Unite(Composition composition) {
+		this.composition = composition;
+	}
+
+
 	public Unite(Set<Arme> armes, int prix, Armee armee) {
 		this.armes = armes;
 		this.prix = prix;

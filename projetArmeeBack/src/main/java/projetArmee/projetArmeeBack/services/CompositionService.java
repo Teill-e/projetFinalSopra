@@ -1,6 +1,7 @@
 package projetArmee.projetArmeeBack.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,9 +25,9 @@ public class CompositionService {
 		if (composition == null) {
 			throw new CompositionException("composition null");
 		}
-		if (composition.getUnites() == null || composition.getParties() == null) {
-			throw new CompositionException("informations manquantes");
-		}
+		/*if (composition.getParties() == null) {
+			throw new CompositionException("informations manquante");
+		}*/
 	}
 	
 	private void checkId(Long id) {
@@ -59,10 +60,8 @@ public class CompositionService {
 		return compositionRepo.findAll();
 	}
 	
-	public Composition findByParties(Partie parties){
-		return compositionRepo.findByParties(parties).orElseThrow(() -> {
-			throw new CompositionException("Pas de composition pour ces parties");
-		});
+	public Optional<Composition> findByParties(Partie parties){
+		return (compositionRepo.findByParties(parties));
 	}
 	
 	public void delete(Composition composition) {

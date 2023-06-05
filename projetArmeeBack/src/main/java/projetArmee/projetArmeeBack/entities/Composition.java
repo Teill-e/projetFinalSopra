@@ -14,23 +14,32 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import projetArmee.projetArmeeBack.entities.jsonViews.JsonViews;
+
 @Entity
 @Table(name="Composition")
 public class Composition {
-
+	@JsonView(JsonViews.Base.class)
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="composition_id")
 	private Long id;
+	@JsonView(JsonViews.Unite.class)
 	@OneToMany(mappedBy = "composition")
 	private Set<Unite> unites;
+	@JsonView(JsonViews.CompositionWithParties.class)
 	@OneToMany(mappedBy = "compoJoueur")
 	private Set<Partie> parties;
+	@JsonView(JsonViews.Base.class)
 	@Column(name="composition_budget")
-	private int budget = 100;
+	private int budget ;
 	
 	public Composition() {
 	}
+
+	
 
 	
 
@@ -40,6 +49,10 @@ public class Composition {
 		this.budget = budget;
 	}
 
+	public Composition(Set<Unite> unites, int budget) {
+		this.unites = unites;
+		this.budget = budget;
+	}
 	
 
 

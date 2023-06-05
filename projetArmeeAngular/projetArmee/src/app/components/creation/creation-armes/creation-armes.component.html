@@ -1,0 +1,57 @@
+<h1>creation armes</h1>
+<div>
+  <!-- <div class="form-group">
+    <label for="id">id:</label>
+    <input
+      id="id"
+      class="form-control"
+      [(ngModel)]="arme.id"
+      readonly
+      placeholder="numero auto"
+    />
+  </div> -->
+  <div class="form-group">
+    <label for="nom">nom:</label>
+    <div>
+      <select [(ngModel)]="selectedTypeA" [compareWith]="compare">
+        <option value="undefined">Choisir une arme</option>
+        <option *ngFor="let arme of armes; s" [ngValue]="arme.name">
+          {{ arme.name }} - {{ arme.prix }} - {{ arme.degat }}
+        </option>
+      </select>
+
+      <!-- <select [(ngModel)]="selectedArme">
+        <option value="" disabled selected>Choisissez une arme</option>
+        <option *ngFor="let type of typeAValues" [value]="arme.typeA">
+          {{ type }}
+        (Prix : {{ typeAData[arme].prix }}, Dégâts : {{ typeAData[arme].degat }})
+        </option>
+      </select> -->
+    </div>
+    <!-- <div>
+      <table class="table">
+        <tr>
+          <th>prix:</th>
+          <th>degats:</th>
+        </tr>
+        <tr>
+          <td>{{ selectedArme.prix }}</td>
+          <td>{{ selectedArme.degats }}</td>
+        </tr>
+      </table>
+    </div> -->
+    <!-- <div>
+      <select [(ngModel)]="selectedArme">
+        <option value="" disabled selected>Choisissez une arme</option>
+        <option *ngFor="let arme of typeAValues" [value]="arme">
+          {{ arme | json }}
+        </option>
+      </select>
+    </div> -->
+  </div>
+  <div class="form-group">
+    <button (click)="save()" class="btn btn-outline-primary">
+      enregistrer
+    </button>
+  </div>
+</div>

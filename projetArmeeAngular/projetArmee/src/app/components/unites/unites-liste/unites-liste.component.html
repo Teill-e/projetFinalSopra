@@ -1,1 +1,18 @@
 <p>unites-liste works!</p>
+<table class="table">
+  <tr>
+    <th>unites:</th>
+    <th>parties:</th>
+    <th>budget:</th>
+    <th>budget:</th>
+    <th>arme:</th>
+  </tr>
+  <tr *ngFor="let unite of obsUnites | async">
+    <td>{{ unite.armes }}</td>
+    <td>{{ unite.prix }}</td>
+    <td>{{ unite.armee }}</td>
+    <td>{{ unite.composition }}</td>
+    <td>{{ unite.id }}</td>
+  </tr>
+</table>
+<a class="btn btn-outline-primary" routerLink="/unites-edit">nv-unite</a>

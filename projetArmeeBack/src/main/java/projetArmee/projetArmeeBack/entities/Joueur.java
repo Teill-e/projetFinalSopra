@@ -16,8 +16,7 @@ import com.fasterxml.jackson.databind.deser.Deserializers.Base;
 
 @Entity
 public class Joueur extends Compte{
-	@ManyToMany
-	@JoinColumn(name = "partie_id")
+	@OneToMany(mappedBy ="joueur")
 	private Set<Partie> listeParties;
 	
 	public Joueur() {

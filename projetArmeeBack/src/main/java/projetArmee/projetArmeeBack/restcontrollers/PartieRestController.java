@@ -23,6 +23,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 import projetArmee.projetArmeeBack.entities.Partie;
 import projetArmee.projetArmeeBack.entities.jsonViews.JsonViews;
+import projetArmee.projetArmeeBack.services.CompositionService;
 import projetArmee.projetArmeeBack.services.PartieService;
 
 @RestController
@@ -32,10 +33,14 @@ public class PartieRestController {
 
 	@Autowired
 	private PartieService partieSrv;
+	@Autowired
+	private CompositionService compositionSrv;
+	
 	
 	@GetMapping("")
 	@JsonView(JsonViews.Partie.class)
 	public List<Partie> getAll(){
+		System.out.println(partieSrv.getAll());
 		return partieSrv.getAll();
 	}
 	
@@ -54,6 +59,21 @@ public class PartieRestController {
 			throw  new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
 		return partieSrv.create(partie);
+	}
+	
+	
+	@PostMapping("/insertCompo")
+	@JsonView(JsonViews.Partie.class)
+	@ResponseStatus(code = HttpStatus.CREATED)
+	public Partie inserttCompo(@Valid @RequestBody Partie partie,BindingResult br) {
+		System.out.println(partie.toString());
+		if(br.hasErrors()) {
+			throw  new ResponseStatusException(HttpStatus.BAD_REQUEST);
+		}
+		compositionSrv.create(partie.getCompoJoueur());
+		compositionSrv.create(partie.getCompoIA());
+		
+		return partieSrv.update(partie);
 	}
 	
 	@PutMapping("/{id}")

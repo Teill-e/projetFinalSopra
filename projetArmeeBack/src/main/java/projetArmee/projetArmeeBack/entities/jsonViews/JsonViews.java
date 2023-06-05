@@ -21,6 +21,10 @@ public class JsonViews {
 		
 	}
 	
+	public class CompositionWithParties extends Composition{}
+	
+	public class CompositionWithUnites extends Composition{}
+	
 	public class Compte extends Base{
 		
 	}

@@ -22,6 +22,9 @@ import org.springframework.web.server.ResponseStatusException;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import projetArmee.projetArmeeBack.entities.Armee;
+import projetArmee.projetArmeeBack.entities.ArmeeAir;
+import projetArmee.projetArmeeBack.entities.ArmeeTerre;
+import projetArmee.projetArmeeBack.entities.Marine;
 import projetArmee.projetArmeeBack.entities.jsonViews.JsonViews;
 import projetArmee.projetArmeeBack.services.ArmeeService;
 
@@ -45,16 +48,62 @@ public class ArmeeRestController {
 		return armeeSrv.getById(id);
 	}
 	
-	@PostMapping("")
+	/*@PostMapping("/{type}")
 	@JsonView(JsonViews.Armee.class)
 	@ResponseStatus(code = HttpStatus.CREATED)
-	public Armee create(@Valid @RequestBody Armee armee,BindingResult br) {
+	public Armee create(@Valid @RequestBody Armee armee,BindingResult br,@PathVariable String type) {
+		if(br.hasErrors()) {
+			throw  new ResponseStatusException(HttpStatus.BAD_REQUEST);
+		}
+		
+		if(type.equals("terre")) 
+		{
+			return armeeSrv.create((ArmeeTerre)armee);
+		}
+		else if(type.equals("mer")) 
+		{
+			return armeeSrv.create((Marine)armee);
+		}
+		else if(type.equals("air")) 
+		{
+			return armeeSrv.create((ArmeeAir)armee);
+		}
+		else 
+		{
+			throw  new ResponseStatusException(HttpStatus.BAD_REQUEST);
+		}
+		
+	}*/
+	
+	
+	@PostMapping("/terre")
+	@JsonView(JsonViews.Armee.class)
+	@ResponseStatus(code = HttpStatus.CREATED)
+	public Armee create(@Valid @RequestBody ArmeeTerre armee,BindingResult br) {
 		if(br.hasErrors()) {
 			throw  new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
 		return armeeSrv.create(armee);
 	}
 	
+	@PostMapping("/air")
+	@JsonView(JsonViews.Armee.class)
+	@ResponseStatus(code = HttpStatus.CREATED)
+	public Armee create(@Valid @RequestBody ArmeeAir armee,BindingResult br) {
+		if(br.hasErrors()) {
+			throw  new ResponseStatusException(HttpStatus.BAD_REQUEST);
+		}
+		return armeeSrv.create(armee);
+	}
+	@PostMapping("/marine")
+	@JsonView(JsonViews.Armee.class)
+	@ResponseStatus(code = HttpStatus.CREATED)
+	public Armee create(@Valid @RequestBody Marine armee,BindingResult br) {
+		if(br.hasErrors()) {
+			throw  new ResponseStatusException(HttpStatus.BAD_REQUEST);
+		}
+		return armeeSrv.create(armee);
+	}
 	
 	@PutMapping("/{id}")
 	@JsonView(JsonViews.Armee.class)

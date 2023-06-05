@@ -48,10 +48,11 @@ public class PartieService {
 
 	public Partie update(Partie partie) {
 		Partie partieEnBase = getById(partie.getId());
-		checkPartie(partie);
+		//checkPartie(partie);
 		partieEnBase.setDate(partie.getDate());
 		partieEnBase.setFin(partie.isFin());
 		partieEnBase.setJoueur(partie.getJoueur());
+	
 		partieEnBase.setCompoJoueur(partie.getCompoJoueur());
 		partieEnBase.setCompoIA(partie.getCompoIA());
 		return partieRepo.save(partieEnBase);

@@ -1,0 +1,19 @@
+<h1>creation armees</h1>
+<div>
+  <div class="form-group">
+    <label for="nom">pays:</label>
+    <div>
+      <select [(ngModel)]="selectedPays">
+        <option value="" disabled selected>Choisissez un pays</option>
+        <option *ngFor="let pays of paysValues" [value]="pays">
+          {{ pays }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <button (click)="save()" class="btn btn-outline-primary">
+      enregistrer
+    </button>
+  </div>
+</div>

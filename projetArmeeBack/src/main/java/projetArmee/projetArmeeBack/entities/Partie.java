@@ -16,18 +16,25 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import projetArmee.projetArmeeBack.entities.jsonViews.JsonViews;
+
 @Entity
 @Table(name = "partie")
 public class Partie {
-
+	@JsonView(JsonViews.Base.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "partie_id")
 	private Long id;
+	@JsonView(JsonViews.Base.class)
 	@Column(name = "partie_date")
 	private LocalDate date;
+	@JsonView(JsonViews.Base.class)
 	@Column(name = "partie_fin")
 	private boolean fin;
+	@JsonView(JsonViews.Joueur.class)
 	@ManyToOne
 	@JoinColumn(name = "partie_joueur")
 	private Joueur joueur;

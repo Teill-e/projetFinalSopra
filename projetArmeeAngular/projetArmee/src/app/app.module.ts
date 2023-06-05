@@ -17,6 +17,11 @@ import { CompositionListeComponent } from './components/composition/composition-
 import { CompositionEditComponent } from './components/composition/composition-edit/composition-edit.component';
 import { UnitesListeComponent } from './components/unites/unites-liste/unites-liste.component';
 import { UnitesEditComponent } from './components/unites/unites-edit/unites-edit.component';
+import { NvpartiComponent } from './components/nvparti/nvparti.component';
+import { NouvelleCompositionComponent } from './components/composition/nouvelle-composition/nouvelle-composition.component';
+import { MenuAdminComponent } from './components/menu-admin/menu-admin.component';
+import { CreationArmesComponent } from './components/creation/creation-armes/creation-armes.component';
+import { CreationArmeesComponent } from './components/creation/creation-armees/creation-armees.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +38,11 @@ import { UnitesEditComponent } from './components/unites/unites-edit/unites-edit
     CompositionEditComponent,
     UnitesListeComponent,
     UnitesEditComponent,
+    NvpartiComponent,
+    NouvelleCompositionComponent,
+    MenuAdminComponent,
+    CreationArmesComponent,
+    CreationArmeesComponent,
   ],
   imports: [
     BrowserModule,

@@ -10,16 +10,12 @@
     <td>{{ partie.date }}</td>
     <td>{{ partie.fin }}</td>
     <td></td>
-    <td>
-      <button (click)="deletePartie(partie.id!)" class="btn btn-outline-danger">
-        supprimer
-      </button>
-    </td>
+    <td></td>
     <td>
       <a
         class="btn btn-outline-primary"
-        routerLink="/partie-edit/{{ partie.id }}"
-        >editer</a
+        routerLink="/composition-liste/{{ partie.id }}"
+        >jouer</a
       >
     </td>
     <td>

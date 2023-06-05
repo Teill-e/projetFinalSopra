@@ -24,7 +24,6 @@ export class NouvellePartieComponent implements OnInit {
     this.partie.date = new Date();
     this.partie.fin = false;
     this.partie.joueur = this.authSrv.joueurSession();
-    console.log(this.partie);
     this.save();
   }
 
@@ -32,6 +31,5 @@ export class NouvellePartieComponent implements OnInit {
     this.partieSrv.create(this.partie).subscribe((res) => {
       this.router.navigateByUrl('/listeparties');
     });
-    console.log(this.partie);
   }
 }

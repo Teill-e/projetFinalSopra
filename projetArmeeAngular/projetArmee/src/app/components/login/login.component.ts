@@ -24,7 +24,11 @@ export class LoginComponent {
         );
         //console.log('login');
         sessionStorage.setItem('compte', JSON.stringify(compte));
-        this.router.navigateByUrl('/listeparties');
+        if (this.authSrv.isAdmin()) {
+          this.router.navigateByUrl('/menu-admin');
+        } else {
+          this.router.navigateByUrl('/listeparties');
+        }
       },
       error: (err) => {
         this.displayError = true;

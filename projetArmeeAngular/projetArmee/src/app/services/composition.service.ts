@@ -9,6 +9,11 @@ import { Composition } from '../models/composition';
 export class CompositionService {
   constructor(private httpClient: HttpClient) {}
 
+  getCompositionsbyparti(id: number): Observable<Composition[]> {
+    return this.httpClient.get<Composition[]>(
+      `http://localhost:8080/armee/api/composition/bypartie/${id}`
+    );
+  }
   public getCompositions(): Observable<Composition[]> {
     return this.httpClient.get<Composition[]>(
       'http://localhost:8080/armee/api/composition'

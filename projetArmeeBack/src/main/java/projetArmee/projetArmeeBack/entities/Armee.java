@@ -39,11 +39,11 @@ public abstract class Armee {
 	protected Set<Unite> listeUnites;
 		
 	public Armee() {
-	}
+	}	
 
 	public Armee(Integer pv, Integer moral, Pays pays) {
-		this.pv = pv;
-		this.moral = moral;
+		this.pv = 100;
+		this.moral = 100;
 		this.pays = pays;
 	}
 	

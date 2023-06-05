@@ -1,1 +1,13 @@
-<p>composition-liste works!</p>
+<table class="table">
+  <tr>
+    <th>unites:</th>
+    <th>parties:</th>
+    <th>budget:</th>
+  </tr>
+  <tr *ngFor="let copo of compositions | async">
+    <td>{{ copo.unites }}</td>
+    <td>{{ copo.parties }}</td>
+    <td>{{ copo.budget }}</td>
+  </tr>
+</table>
+<a class="btn btn-outline-primary" routerLink="/unites-edit/{{ idp }}">jouer</a>

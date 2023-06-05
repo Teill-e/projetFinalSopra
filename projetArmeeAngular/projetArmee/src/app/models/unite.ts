@@ -1,5 +1,5 @@
 import { Arme } from './arme';
-import { Armee } from './armee';
+import { Armee } from './armeeAir';
 import { Composition } from './composition';
 
 export class Unite {

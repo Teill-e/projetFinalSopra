@@ -18,6 +18,7 @@ public interface PartieRepository extends JpaRepository<Partie, Long> {
 	Optional<Partie> findByJoueur(Joueur joueur);
 	
 	
+	
 	@Transactional
 	@Modifying
 	void deleteByJoueur(Joueur joueur);

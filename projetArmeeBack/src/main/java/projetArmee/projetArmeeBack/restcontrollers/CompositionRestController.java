@@ -1,6 +1,7 @@
 package projetArmee.projetArmeeBack.restcontrollers;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -22,8 +23,10 @@ import org.springframework.web.server.ResponseStatusException;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import projetArmee.projetArmeeBack.entities.Composition;
+import projetArmee.projetArmeeBack.entities.Partie;
 import projetArmee.projetArmeeBack.entities.jsonViews.JsonViews;
 import projetArmee.projetArmeeBack.services.CompositionService;
+import projetArmee.projetArmeeBack.services.PartieService;
 
 @RestController
 @RequestMapping("/api/composition")
@@ -32,11 +35,20 @@ public class CompositionRestController {
 
 	@Autowired
 	private CompositionService compoSrv;
+	@Autowired
+	private PartieService partieSrv;
 	
 	@GetMapping("")
 	@JsonView(JsonViews.Composition.class)
 	public List<Composition> getAll(){
 		return compoSrv.getAll();
+	}
+	
+	@GetMapping("/bypartie/{id}")
+	@JsonView(JsonViews.Composition.class)
+	public Optional<Composition> findByParties(@PathVariable("id") Long id){
+		Partie partie = partieSrv.getById(id);
+		return compoSrv.findByParties(partie);
 	}
 	
 	@GetMapping("/{id}")
