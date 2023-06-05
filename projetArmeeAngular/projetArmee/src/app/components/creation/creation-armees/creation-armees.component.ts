@@ -13,11 +13,15 @@ export class CreationArmeesComponent {
   selectedPays: Pays | undefined;
   paysValues = Object.values(Pays);
   armee: Armee = new Armee();
+  typeArmee!: string;
 
   constructor(private armeeSrv: ArmeeService, private router: Router) {}
 
   save() {
-    this.armeeSrv.create(this.armee).subscribe((armeeCreee) => {
+    this.armee.pays = this.selectedPays;
+    this.armee.pv = 100;
+    this.armee.moral = 100;
+    this.armeeSrv.create(this.armee, this.typeArmee).subscribe((armeeCreee) => {
       this.router.navigateByUrl('/menu-admin');
     });
   }

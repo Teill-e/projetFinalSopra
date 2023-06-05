@@ -11,6 +11,36 @@
       </select>
     </div>
   </div>
+  <div>
+    <input
+      type="radio"
+      id="air"
+      name="typeArmee"
+      value="air"
+      [(ngModel)]="typeArmee"
+    />
+    <label for="air">Armée de l'air</label>
+  </div>
+  <div>
+    <input
+      type="radio"
+      id="terre"
+      name="typeArmee"
+      value="terre"
+      [(ngModel)]="typeArmee"
+    />
+    <label for="terre">Armée de terre</label>
+  </div>
+  <div>
+    <input
+      type="radio"
+      id="marine"
+      name="typeArmee"
+      value="marine"
+      [(ngModel)]="typeArmee"
+    />
+    <label for="marine">Marine</label>
+  </div>
   <div class="form-group">
     <button (click)="save()" class="btn btn-outline-primary">
       enregistrer
