@@ -3,13 +3,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Compte } from '../models/compte';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthenticationService {
   private static URL: string = 'http://localhost:8080/armee/api/auth';
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient, private router: Router) {}
 
   public login(login: string, password: string): Observable<any> {
     let headers = new HttpHeaders({
@@ -43,6 +44,7 @@ export class AuthenticationService {
 
   public disconnect() {
     sessionStorage.clear();
+    this.router.navigateByUrl('/accueil');
   }
 
   public loginSession(): string {

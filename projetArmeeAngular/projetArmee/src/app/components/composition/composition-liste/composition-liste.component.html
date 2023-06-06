@@ -1,15 +1,13 @@
 <table class="table">
   <tr>
-    <th>unites:</th>
-    <th>parties:</th>
+    <th>id:</th>
     <th>budget:</th>
   </tr>
   <tr *ngFor="let copo of compositions | async">
-    <td>{{ copo.unites }}</td>
-    <td>{{ copo.parties }}</td>
+    <td>{{ copo.id }}</td>
     <td>{{ copo.budget }}</td>
   </tr>
 </table>
-<a class="btn btn-outline-primary" routerLink="/unites-liste/{{ idp }}"
+<a class="btn btn-outline-primary" routerLink="/unites-edite/{{ idp }}"
   >jouer</a
 >

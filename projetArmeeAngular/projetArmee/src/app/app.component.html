@@ -1,1 +1,8 @@
+<button
+  (click)="authSrv.disconnect()"
+  *ngIf="authSrv.isLogged() == true"
+  class="btn btn-danger"
+>
+  Se deconnecter
+</button>
 <router-outlet></router-outlet>

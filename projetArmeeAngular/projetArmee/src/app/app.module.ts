@@ -15,10 +15,13 @@ import { JoueurListePartiesComponent } from './components/partie/joueur-liste-pa
 import { NouvellePartieComponent } from './components/partie/nouvelle-partie/nouvelle-partie.component';
 import { CompositionListeComponent } from './components/composition/composition-liste/composition-liste.component';
 import { CompositionEditComponent } from './components/composition/composition-edit/composition-edit.component';
-import { UnitesListeComponent } from './components/unites/unites-liste/unites-liste.component';
-import { UnitesEditComponent } from './components/unites/unites-edit/unites-edit.component';
 import { NvpartiComponent } from './components/nvparti/nvparti.component';
 import { NouvelleCompositionComponent } from './components/composition/nouvelle-composition/nouvelle-composition.component';
+import { UnitelisteComponent } from './components/unites/uniteliste/uniteliste.component';
+import { UniteEditComponent } from './components/unites/unite-edit/unite-edit.component';
+import { MenuAdminComponent } from './components/menu-admin/menu-admin.component';
+import { CreationArmeesComponent } from './components/creation/creation-armees/creation-armees.component';
+import { CreationArmesComponent } from './components/creation/creation-armes/creation-armes.component';
 
 @NgModule({
   declarations: [
@@ -33,10 +36,13 @@ import { NouvelleCompositionComponent } from './components/composition/nouvelle-
     NouvellePartieComponent,
     CompositionListeComponent,
     CompositionEditComponent,
-    UnitesListeComponent,
-    UnitesEditComponent,
     NvpartiComponent,
     NouvelleCompositionComponent,
+    UnitelisteComponent,
+    UniteEditComponent,
+    MenuAdminComponent,
+    CreationArmeesComponent,
+    CreationArmesComponent,
   ],
   imports: [
     BrowserModule,

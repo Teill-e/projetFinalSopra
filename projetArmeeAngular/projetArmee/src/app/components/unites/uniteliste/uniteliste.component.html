@@ -1,0 +1,17 @@
+<h1>listes des parties</h1>
+<table class="table">
+  <tr>
+    <th>arme:</th>
+    <th>prix:</th>
+    <th>armee:</th>
+    <th>composition:</th>
+  </tr>
+  <tr *ngFor="let unite of obsUnites | async">
+    <td>{{ unite.armes }}</td>
+    <td>{{ unite.prix }}</td>
+    <td>{{ unite.armee }}</td>
+    <td>{{ unite.composition }}</td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>

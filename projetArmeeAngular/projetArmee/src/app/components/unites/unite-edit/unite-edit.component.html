@@ -1,0 +1,32 @@
+<p>unites-liste works!</p>
+<div>
+  <h2>Weapon Selection</h2>
+  <div class="weapon-list">
+    <div class="weapon-item" *ngFor="let weapon of weapons">
+      <input
+        type="checkbox"
+        [value]="weapon"
+        (change)="toggleWeaponSelection($event, weapon)"
+        id="{{ weapon.name }}"
+      />
+      <label for="{{ weapon.name }}">{{ weapon.name }}</label
+      ><label for="{{ weapon.prix }}">{{ weapon.prix }}</label>
+    </div>
+  </div>
+</div>
+
+<table class="table">
+  <tr>
+    <th>Armees:</th>
+  </tr>
+  <select [(ngModel)]="selectedarmee">
+    <option *ngFor="let obj of obsArmees | async" [ngValue]="obj">
+      {{ obj.pv }} - {{ obj.pays }}
+    </option>
+  </select>
+  <div>
+    <button (click)="crrerunite()" class="btn btn-outline-danger">
+      creer une unite
+    </button>
+  </div>
+</table>

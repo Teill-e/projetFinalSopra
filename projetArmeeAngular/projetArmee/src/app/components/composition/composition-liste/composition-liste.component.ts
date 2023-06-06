@@ -47,6 +47,7 @@ export class CompositionListeComponent {
     this.idp = this.activatedRoute.snapshot.params['id'];
     //this.compositions = this.compositionSrv.getCompositionsbyparti(this.idp);
     this.compositions = this.compositionSrv.getCompositions();
+    console.log(this.compositions);
   }
 
   delete(id: number) {

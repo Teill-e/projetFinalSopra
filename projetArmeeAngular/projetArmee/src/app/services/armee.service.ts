@@ -21,9 +21,10 @@ export class ArmeeService {
     );
   }
 
-  public create(armee: Armee): Observable<Armee> {
+  public create(armee: Armee, typeArmee: string): Observable<Armee> {
+    console.log(armee);
     return this.httpClient.post<Armee>(
-      'http://localhost:8080/armee/api/armee',
+      `http://localhost:8080/armee/api/armee/${typeArmee}`,
       armee
     );
   }

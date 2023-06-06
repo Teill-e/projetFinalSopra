@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Partie } from 'src/app/models/partie';
 import { PartieService } from 'src/app/services/partie.service';
 
