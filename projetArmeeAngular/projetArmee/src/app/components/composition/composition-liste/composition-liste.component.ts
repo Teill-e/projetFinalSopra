@@ -13,12 +13,12 @@ import { PartieService } from 'src/app/services/partie.service';
   styleUrls: ['./composition-liste.component.css'],
 })
 export class CompositionListeComponent {
-  compositions!: Observable<Composition[]>;
+  compositions: Composition[] = [];
   idp!: number;
-  compoactuel!: Composition;
-
+  partie!: Partie;
   constructor(
     private compositionSrv: CompositionService,
+
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private partieSrv: PartieService
@@ -43,16 +43,17 @@ export class CompositionListeComponent {
   // }
 
   ngOnInit(): void {
-    this.compoactuel = new Composition();
     this.idp = this.activatedRoute.snapshot.params['id'];
-    //this.compositions = this.compositionSrv.getCompositionsbyparti(this.idp);
-    this.compositions = this.compositionSrv.getCompositions();
-    console.log(this.compositions);
+    this.partieSrv.getById(this.idp).subscribe((res) => {
+      this.partie = res;
+
+      this.compositions.push(this.partie.compoIA!);
+      this.compositions.push(this.partie.compoJoueur!);
+      console.log(this.compositions);
+    });
   }
 
   delete(id: number) {
-    this.compositionSrv.deleteById(id).subscribe(() => {
-      this.compositions = this.compositionSrv.getCompositions();
-    });
+    this.compositionSrv.deleteById(id).subscribe(() => {});
   }
 }

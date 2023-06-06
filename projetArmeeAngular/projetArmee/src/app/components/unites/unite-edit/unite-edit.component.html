@@ -1,4 +1,3 @@
-<p>unites-liste works!</p>
 <div>
   <h2>Weapon Selection</h2>
   <div class="weapon-list">
@@ -21,7 +20,7 @@
   </tr>
   <select [(ngModel)]="selectedarmee">
     <option *ngFor="let obj of obsArmees | async" [ngValue]="obj">
-      {{ obj.pv }} - {{ obj.pays }}
+      {{ obj.pv }} - {{ obj.pays }} - {{ obj.type }}
     </option>
   </select>
   <div>

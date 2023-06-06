@@ -19,7 +19,7 @@ export class ArmeService {
     );
   }
 
-  public create(arme: Arme): Observable<Arme> {
+  public create(arme: Arme | any): Observable<Arme> {
     return this.httpClient.post<Arme>(
       'http://localhost:8080/armee/api/arme',
       arme

@@ -24,6 +24,7 @@ export class UniteEditComponent implements OnInit {
   selectedarmee!: Armee;
   selectedObjects: any;
   uniteactuelle!: Unite;
+  tabArmes: Arme[] = [];
   arme!: Arme;
 
   constructor(
@@ -53,30 +54,48 @@ export class UniteEditComponent implements OnInit {
   }
 
   crrerunite() {
+    this.uniteactuelle.prix = 0;
+    for (let a of this.selectedarme) {
+      this.uniteactuelle.prix! += a.typeA?.prix!;
+    }
+
     this.acroute.params.subscribe((params) => {
       const compositionId = params['id'];
-      this.compoSrv
-        .getById(compositionId)
-        .subscribe((composition: Composition) => {
-          this.uniteactuelle.composition = composition;
-          this.armeSrv.create(this.arme);
-          this.uniteactuelle.armes = this.selectedarme;
-          this.uniteactuelle.prix = 500;
-          this.uniteactuelle.armee = this.selectedarmee;
+      this.compoSrv.getById(compositionId).subscribe((composition) => {
+        this.uniteactuelle.composition = composition;
+        this.uniteactuelle.armes = this.tabArmes;
+        this.uniteactuelle.armee = this.selectedarmee;
+        this.creationdesarmes();
+
+        this.uniteSrv.create(this.uniteactuelle).subscribe((res) => {
+          this.router.navigateByUrl('nvparti-list');
         });
+      });
     });
-    this.uniteSrv.create(this.uniteactuelle);
-    console.log(this.uniteactuelle, 'tot');
-    this.uniteSrv.update(this.uniteactuelle);
+  }
+
+  creationdesarmes() {
+    this.creationdesarmes;
+    for (let a of this.selectedarme) {
+      let arme = { typeA: a.typeA?.name };
+
+      this.armeSrv.create(arme).subscribe((armeCreee) => {
+        this.tabArmes.push(armeCreee);
+        console.log('Armée created:', armeCreee);
+      });
+    }
   }
   toggleWeaponSelection(event: any, weapon: TypeA) {
-    if (this.selectedWeapons.has(weapon)) {
-      this.selectedWeapons.delete(weapon);
+    if (event.target.checked) {
+      let arme: Arme = new Arme();
+      arme.typeA = weapon;
+      this.selectedarme.add(arme);
     } else {
-      this.arme.typeA = weapon;
-      this.selectedarme.add(this.arme);
-      console.log(this.selectedarme);
-      this.selectedWeapons.add(weapon);
+      for (let a of this.selectedarme) {
+        if (a.typeA == weapon) {
+          this.selectedarme.delete(a);
+        }
+      }
     }
   }
 

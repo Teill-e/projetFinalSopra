@@ -3,8 +3,6 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-nvparti',
   templateUrl: './nvparti.component.html',
-  styleUrls: ['./nvparti.component.css']
+  styleUrls: ['./nvparti.component.css'],
 })
-export class NvpartiComponent {
-
-}
+export class NvpartiComponent {}

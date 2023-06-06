@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import projetArmee.projetArmeeBack.entities.Armee;
+import projetArmee.projetArmeeBack.entities.ArmeeAir;
 import projetArmee.projetArmeeBack.exceptions.ArmeeException;
+import projetArmee.projetArmeeBack.repositories.ArmeeAirRepository;
 import projetArmee.projetArmeeBack.repositories.ArmeeRepository;
 import projetArmee.projetArmeeBack.repositories.UniteRepository;
 
@@ -15,6 +17,9 @@ public class ArmeeService {
 	
 	@Autowired
 	private ArmeeRepository armeeRepo;
+	@Autowired
+	private ArmeeAirRepository armeeAirRepo;
+	
 	
 	@Autowired
 	private UniteRepository uniteRepo;
@@ -41,10 +46,16 @@ public class ArmeeService {
 		});		
 	}
 	
-	public Armee create(Armee armee) {
+//	public Armee create(Armee armee) {
+//		checkArmee(armee);
+//		return armeeRepo.save(armee);}
+	
+	
+	public ArmeeAir create(ArmeeAir armee) {
 		checkArmee(armee);
-		return armeeRepo.save(armee);
+		return  armeeAirRepo.save(armee);
 	}
+	
 	
 	public Armee update(Armee armee) {
 		Armee armeeEnBase = getById(armee.getId());

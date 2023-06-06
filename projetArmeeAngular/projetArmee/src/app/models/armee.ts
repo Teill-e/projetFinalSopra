@@ -7,6 +7,7 @@ export class Armee {
     public moral?: number,
     public pays?: Pays,
     public listeUnites?: Set<Unite>,
+    public type?: string,
     public id?: number
   ) {}
 }

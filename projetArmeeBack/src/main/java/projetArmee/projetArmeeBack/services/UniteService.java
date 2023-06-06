@@ -29,9 +29,9 @@ public class UniteService {
 		if (unite == null) {
 			throw new UniteException("Unite null");
 		}
-		if (unite.getPrix() == 0 || unite.getArmee() == null || unite.getArmee() == null) {
-			throw new UniteException("informations manquantes");
-		}
+//		if (unite.getPrix() == 0 || unite.getArmee() == null || unite.getArmee() == null) {
+//			throw new UniteException("informations manquantes");
+//		}
 	}
 
 	private void checkId(Long id) {

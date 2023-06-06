@@ -3,11 +3,13 @@
     <th>id:</th>
     <th>budget:</th>
   </tr>
-  <tr *ngFor="let copo of compositions | async">
+  <tr *ngFor="let copo of compositions">
     <td>{{ copo.id }}</td>
     <td>{{ copo.budget }}</td>
   </tr>
 </table>
-<a class="btn btn-outline-primary" routerLink="/unites-edite/{{ idp }}"
+<a
+  class="btn btn-outline-primary"
+  routerLink="/unites-edite/{{ compositions[1].id }}"
   >jouer</a
 >
