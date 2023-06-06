@@ -1,19 +1,25 @@
-<div *ngIf="authSrv.isLogged() == false">
-  <div>
-    <a routerLink="/login" routerLinkActive="active" class="btn btn-link"
-      >Se connecter</a
+<body>
+  <div class="container">
+    <h1 class="title">Warzone Commanders</h1>
+    <div class="button-container" *ngIf="authSrv.isLogged() == false">
+      <div class="button-wrapper">
+        <a routerLink="/login" routerLinkActive="active" class="btn btn-dark"
+          >Se connecter</a
+        >
+        <a
+          routerLink="/inscription"
+          routerLinkActive="active"
+          class="btn btn-dark"
+          >Créer un compte</a
+        >
+      </div>
+    </div>
+    <button
+      (click)="authSrv.disconnect()"
+      *ngIf="authSrv.isLogged() == true"
+      class="btn btn-danger"
     >
+      Se déconnecter
+    </button>
   </div>
-  <div>
-    <a routerLink="/inscription" routerLinkActive="active" class="btn btn-link"
-      >Créer un compte</a
-    >
-  </div>
-</div>
-<button
-  (click)="authSrv.disconnect()"
-  *ngIf="authSrv.isLogged() == true"
-  class="btn btn-danger"
->
-  Se deconnecter
-</button>
+</body>

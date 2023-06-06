@@ -1,31 +1,186 @@
-<div>
-  <h2>Weapon Selection</h2>
-  <div class="weapon-list">
-    <div class="weapon-item" *ngFor="let weapon of weapons">
-      <input
-        type="checkbox"
-        [value]="weapon"
-        (change)="toggleWeaponSelection($event, weapon)"
-        id="{{ weapon.name }}"
-      />
-      <label for="{{ weapon.name }}">{{ weapon.name }}</label
-      ><label for="{{ weapon.prix }}">{{ weapon.prix }}</label>
+<body>
+  <div class="content">
+    <h3>Warzone Commanders</h3>
+    <div class="line"></div>
+    <h2>Création unité</h2>
+    <div class="container">
+      <div class="container-list">
+        <div class="weapon-list">
+          <h4>Sélection des armes</h4>
+          <div class="form-check" *ngFor="let weapon of weapons">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              [value]="weapon"
+              (change)="toggleWeaponSelection($event, weapon)"
+              id="{{ weapon.name }}"
+            />
+            <label class="form-check-label" for="{{ weapon.name }}">
+              {{ weapon.name }}
+            </label>
+            <label class="form-check-label" for="{{ weapon.prix }}">
+              {{ weapon.prix }}
+            </label>
+          </div>
+        </div>
+
+        <table class="table">
+          <tr>
+            <h4>Armees:</h4>
+          </tr>
+          <select [(ngModel)]="selectedarmee">
+            <option *ngFor="let obj of obsArmees | async" [ngValue]="obj">
+              {{ obj.pv }} - {{ obj.pays }}
+            </option>
+          </select>
+        </table>
+        <div class="button-creer">
+          <button (click)="crrerunite()" class="btn btn-outline-danger">
+            Créer une unite
+          </button>
+        </div>
+      </div>
+      <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="card">
+              <img
+                src="https://armurerie-age.com/5218-large_default/fusil-d-assaut-electrique-hk-g36-c-sportsline-bronze-cal-6-mm.jpg"
+                class="card-img-top"
+                alt="Arme"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Fusil d'assaut</h5>
+                <p class="card-text">Degat : 10</p>
+                <p class="card-text">Coût : 10</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="card">
+              <img
+                src="https://demmer-shop.de/media/image/f1/ca/9d/deutsche-mp-40-schmeisser-84150-6688066079_600x600.jpg"
+                class="card-img-top"
+                alt="Autre arme"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Mitraillette</h5>
+                <p class="card-text">Degat : 15</p>
+                <p class="card-text">Coût : 15</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="card sniper-card">
+              <img
+                src="https://st.depositphotos.com/1035297/4501/i/450/depositphotos_45019335-stock-photo-sniper-rifle-with-bipod.jpg"
+                class="card-img-top"
+                alt="Autre arme"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Sniper</h5>
+                <p class="card-text">Degat : 5</p>
+                <p class="card-text">Coût : 5</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="card">
+              <img
+                src="https://media.cdnws.com/_i/13847/4718/1128/20/kimar-92-f-2.jpeg"
+                class="card-img-top"
+                alt="Autre arme"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Pistolet</h5>
+                <p class="card-text">Degat : 5</p>
+                <p class="card-text">Coût : 5</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="card">
+              <img
+                src="https://static.turbosquid.com/Preview/2020/07/07__06_53_28/un1.png5E615902-6DEF-42B1-9BE7-58BEBBE2CDF9Default.jpg"
+                class="card-img-top"
+                alt="Autre arme"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Grenade</h5>
+                <p class="card-text">Degat : 10</p>
+                <p class="card-text">Coût : 10</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="card">
+              <img
+                src="https://th.bing.com/th/id/R.edef359bc22d6829d2a1fe4e1851329c?rik=tNVL6ISb09iqQg&riu=http%3a%2f%2fcdn.shopify.com%2fs%2ffiles%2f1%2f0510%2f0473%2f5665%2fproducts%2fARDGUM-GL-01-0001-2-20200317173832-700x521_1200x1200.jpg%3fv%3d1609905179&ehk=9dyIue%2fmzwYg05wskSNSeipH86Ne0bgBC9%2fvGqeesB8%3d&risl=&pid=ImgRaw&r=0"
+                class="card-img-top"
+                alt="Autre arme"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Roquette</h5>
+                <p class="card-text">Degat : 20</p>
+                <p class="card-text">Coût : 20</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="card">
+              <img
+                src="https://th.bing.com/th/id/R.1f99262e14a92dbd9ff76d0d87d8689a?rik=ZWBSPNW2zDyqXg&riu=http%3a%2f%2fmanyve.com%2fdocuments%2fimages-produits%2fm2015a1003-3.jpg&ehk=Lbn8v63nt%2b5G6tcJbrB3Tif2CTcfLWuLW0SjWi%2b6QXc%3d&risl=&pid=ImgRaw&r=0"
+                class="card-img-top"
+                alt="Autre arme"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Couteau</h5>
+                <p class="card-text">Degat : 5</p>
+                <p class="card-text">Coût : 5</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="card">
+              <img
+                src="https://th.bing.com/th/id/R.7a30e458e7a5f06ed1005513f481577e?rik=NFQyaul4T7GBTA&pid=ImgRaw&r=0"
+                class="card-img-top"
+                alt="Autre arme"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Mine</h5>
+                <p class="card-text">Degat : 5</p>
+                <p class="card-text">Coût : 5</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#myCarousel"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#myCarousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
     </div>
   </div>
-</div>
-
-<table class="table">
-  <tr>
-    <th>Armees:</th>
-  </tr>
-  <select [(ngModel)]="selectedarmee">
-    <option *ngFor="let obj of obsArmees | async" [ngValue]="obj">
-      {{ obj.pv }} - {{ obj.pays }} - {{ obj.type }}
-    </option>
-  </select>
-  <div>
-    <button (click)="crrerunite()" class="btn btn-outline-danger">
-      creer une unite
-    </button>
-  </div>
-</table>
+</body>

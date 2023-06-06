@@ -1,24 +1,35 @@
-<div *ngIf="displayError" class="alert alert-danger">
-  informations incorrectes
-</div>
-<div>
-  <div class="form-group">
-    <label for="login">login:</label>
-    <input id="login" [(ngModel)]="login" class="form-control" />
+<body>
+  <h3>WarZone Commanders</h3>
+  <div class="line"></div>
+  <div class="container">
+    <h1>Connexion</h1>
+    <div *ngIf="displayError" class="alert alert-danger">
+      informations incorrectes
+    </div>
+    <div class="form-group">
+      <div>
+        <label for="login">login:</label>
+        <input id="login" [(ngModel)]="login" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="password">mot de passe:</label>
+        <input
+          type="password"
+          id="password"
+          [(ngModel)]="password"
+          class="form-control"
+        />
+      </div>
+      <div class="button-container">
+        <button (click)="check()" class="btn btn-outline-success">
+          envoyer</button
+        ><a
+          routerLink="/accueil"
+          routerLinkActive="active"
+          class="btn btn-danger"
+          >annuler</a
+        >
+      </div>
+    </div>
   </div>
-  <div class="form-group">
-    <label for="password">mot de passe:</label>
-    <input
-      type="password"
-      id="password"
-      [(ngModel)]="password"
-      class="form-control"
-    />
-  </div>
-  <div>
-    <button (click)="check()" class="btn btn-outline-primary">envoyer</button
-    ><a routerLink="/accueil" routerLinkActive="active" class="btn btn-link"
-      >retour accueil</a
-    >
-  </div>
-</div>
+</body>

@@ -1,49 +1,56 @@
-<h1>creation armees</h1>
-<div>
-  <div class="form-group">
-    <label for="nom">pays:</label>
+<body>
+  <h3>Warzone Commanders</h3>
+  <div class="line"></div>
+
+  <div class="container">
+    <h1>Création armées</h1>
     <div>
-      <select [(ngModel)]="selectedPays">
-        <option value="" disabled selected>Choisissez un pays</option>
-        <option *ngFor="let pays of paysValues" [value]="pays">
-          {{ pays }}
-        </option>
-      </select>
+      <div class="form-group">
+        <label for="nom">Choisissez votre pays :</label>
+        <div>
+          <select [(ngModel)]="selectedPays">
+            <option value="" disabled selected>Choisissez un pays</option>
+            <option *ngFor="let pays of paysValues" [value]="pays">
+              {{ pays }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <input
+          type="radio"
+          id="air"
+          name="typeArmee"
+          value="air"
+          [(ngModel)]="typeArmee"
+        />
+        <label for="air">Armée de l'air</label>
+      </div>
+      <div>
+        <input
+          type="radio"
+          id="terre"
+          name="typeArmee"
+          value="terre"
+          [(ngModel)]="typeArmee"
+        />
+        <label for="terre">Armée de terre</label>
+      </div>
+      <div>
+        <input
+          type="radio"
+          id="marine"
+          name="typeArmee"
+          value="marine"
+          [(ngModel)]="typeArmee"
+        />
+        <label for="marine">Marine</label>
+      </div>
+      <div class="form-group">
+        <button (click)="save()" class="btn btn-outline-primary">
+          enregistrer
+        </button>
+      </div>
     </div>
   </div>
-  <div>
-    <input
-      type="radio"
-      id="air"
-      name="typeArmee"
-      value="air"
-      [(ngModel)]="typeArmee"
-    />
-    <label for="air">Armée de l'air</label>
-  </div>
-  <div>
-    <input
-      type="radio"
-      id="terre"
-      name="typeArmee"
-      value="terre"
-      [(ngModel)]="typeArmee"
-    />
-    <label for="terre">Armée de terre</label>
-  </div>
-  <div>
-    <input
-      type="radio"
-      id="marine"
-      name="typeArmee"
-      value="marine"
-      [(ngModel)]="typeArmee"
-    />
-    <label for="marine">Marine</label>
-  </div>
-  <div class="form-group">
-    <button (click)="save()" class="btn btn-outline-primary">
-      enregistrer
-    </button>
-  </div>
-</div>
+</body>

@@ -1,15 +1,27 @@
-<table class="table">
-  <tr>
-    <th>id:</th>
-    <th>budget:</th>
-  </tr>
-  <tr *ngFor="let copo of compositions">
-    <td>{{ copo.id }}</td>
-    <td>{{ copo.budget }}</td>
-  </tr>
-</table>
-<a
-  class="btn btn-outline-primary"
-  routerLink="/unites-edite/{{ compositions[1].id }}"
-  >jouer</a
->
+<body>
+  <h3>Warzone Commanders</h3>
+  <div class="line"></div>
+
+  <div class="container">
+    <h1>Liste composition</h1>
+    <table class="table table-striped-columns">
+      <thead>
+        <tr>
+          <th>id:</th>
+          <th>budget:</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let copo of compositions">
+          <td>{{ copo.id }}</td>
+          <td>{{ copo.budget }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <a
+      class="btn btn-outline-primary"
+      routerLink="/unites-edite/{{ compositions[1].id }}"
+      >Jouer</a
+    >
+  </div>
+</body>

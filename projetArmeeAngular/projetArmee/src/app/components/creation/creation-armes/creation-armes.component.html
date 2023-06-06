@@ -1,6 +1,11 @@
-<h1>creation armes</h1>
-<div>
-  <!-- <div class="form-group">
+<body>
+  <h3>Warzone Commanders</h3>
+  <div class="line"></div>
+
+  <div class="container">
+    <h1>Création armes</h1>
+    <div>
+      <!-- <div class="form-group">
     <label for="id">id:</label>
     <input
       id="id"
@@ -10,25 +15,25 @@
       placeholder="numero auto"
     />
   </div> -->
-  <div class="form-group">
-    <label for="nom">nom:</label>
-    <div>
-      <select [(ngModel)]="selectedTypeA" [compareWith]="compare">
-        <option value="undefined">Choisir une arme</option>
-        <option *ngFor="let arme of armes; s" [ngValue]="arme.name">
-          {{ arme.name }} - {{ arme.prix }} - {{ arme.degat }}
-        </option>
-      </select>
+      <div class="form-group">
+        <label for="nom">nom:</label>
+        <div>
+          <select [(ngModel)]="selectedTypeA" [compareWith]="compare">
+            <option value="undefined">Choisir une arme</option>
+            <option *ngFor="let arme of armes; s" [ngValue]="arme.name">
+              {{ arme.name }} - {{ arme.prix }} - {{ arme.degat }}
+            </option>
+          </select>
 
-      <!-- <select [(ngModel)]="selectedArme">
+          <!-- <select [(ngModel)]="selectedArme">
         <option value="" disabled selected>Choisissez une arme</option>
         <option *ngFor="let type of typeAValues" [value]="arme.typeA">
           {{ type }}
         (Prix : {{ typeAData[arme].prix }}, Dégâts : {{ typeAData[arme].degat }})
         </option>
       </select> -->
-    </div>
-    <!-- <div>
+        </div>
+        <!-- <div>
       <table class="table">
         <tr>
           <th>prix:</th>
@@ -40,7 +45,7 @@
         </tr>
       </table>
     </div> -->
-    <!-- <div>
+        <!-- <div>
       <select [(ngModel)]="selectedArme">
         <option value="" disabled selected>Choisissez une arme</option>
         <option *ngFor="let arme of typeAValues" [value]="arme">
@@ -48,10 +53,12 @@
         </option>
       </select>
     </div> -->
+      </div>
+      <div class="form-group">
+        <button (click)="save()" class="btn btn-outline-primary">
+          enregistrer
+        </button>
+      </div>
+    </div>
   </div>
-  <div class="form-group">
-    <button (click)="save()" class="btn btn-outline-primary">
-      enregistrer
-    </button>
-  </div>
-</div>
+</body>

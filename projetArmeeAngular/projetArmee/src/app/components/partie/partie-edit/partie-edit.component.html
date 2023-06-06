@@ -1,43 +1,46 @@
-<h1>edition partie</h1>
-<form (ngSubmit)="save()" #form="ngForm">
-  <div class="form-group">
-    <label for="id">id:</label>
-    <input
-      id="id"
-      name="id"
-      [(ngModel)]="partie.id"
-      class="form-control"
-      placeholder="numero auto"
-      readonly
-    />
-  </div>
-  <div class="form-group">
-    <label for="date">date:</label>
-    <input
-      id="date"
-      name="date"
-      [(ngModel)]="partie.date"
-      class="form-control"
-    />
-  </div>
-  <div class="form-group">
-    <label for="fin">fin:</label>
-    <input id="fin" name="fin" [(ngModel)]="partie.fin" class="form-control" />
-  </div>
+<body>
+  <h3>WarZone Commanders</h3>
+  <div class="container">
+    <h1>Edition partie</h1>
+    <form (ngSubmit)="save()" #form="ngForm">
+      <div class="form-group">
+        <label for="id">id :</label>
+        <input
+          id="id"
+          name="id"
+          [(ngModel)]="partie.id"
+          class="form-control"
+          placeholder="numero auto"
+          readonly
+        />
+      </div>
+      <div class="form-group">
+        <label for="date">date :</label>
+        <input
+          id="date"
+          name="date"
+          [(ngModel)]="partie.date"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="fin">fin :</label>
+        <input
+          id="fin"
+          name="fin"
+          [(ngModel)]="partie.fin"
+          class="form-control"
+        />
+      </div>
 
-  <div>
-    <button
-      type="submit"
-      [disabled]="form.invalid"
-      class="btn btn-outline-primary"
-    >
-      enregistrer
-    </button>
-    <a
-      routerLink="/partie"
-      routerLinkActive="active"
-      class="btn btn-outline-warning"
-      >annuler</a
-    >
+      <div class="button-container">
+        <button type="submit" [disabled]="form.invalid" class="btn btn-success">
+          enregistrer
+        </button>
+        <a routerLink="/partie" routerLinkActive="active" class="btn btn-danger"
+          >annuler</a
+        >
+      </div>
+    </form>
   </div>
-</form>
+</body>

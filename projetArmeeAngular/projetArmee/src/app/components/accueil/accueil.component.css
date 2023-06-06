@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("src/images/img-menu.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.title {
+  text-align: center;
+  margin-top: 25px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 125px;
+  justify-content: space-between;
+}
+
+.button-wrapper {
+  display: flex;
+  gap: 100px;
+}
+
+.btn-bordered {
+  border: 1px solid black;
+  padding: 5px 10px;
+}

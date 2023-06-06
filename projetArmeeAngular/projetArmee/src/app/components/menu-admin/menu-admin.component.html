@@ -1,13 +1,38 @@
-<div>
-  <a routerLink="/creation-armes" routerLinkActive="active" class="btn btn-link"
-    >Creer armes</a
-  >
-</div>
-<div>
-  <a
-    routerLink="/creation-armees"
-    routerLinkActive="active"
-    class="btn btn-link"
-    >Creer armees</a
-  >
-</div>
+<body>
+  <h3>Warzone Commanders</h3>
+  <div class="line"></div>
+
+  <div class="admin-info">Connecté en tant qu'admin</div>
+
+  <div class="container">
+    <h1>Création</h1>
+    <div class="centered-container">
+      <div class="image-wrapper">
+        <img
+          src="https://th.bing.com/th/id/OIP.ffWHEn5Am6E1te2uKdMCDwHaEK?pid=ImgDet&rs=1"
+          alt="Image armes"
+          class="image-armes"
+        />
+        <a
+          routerLink="/creation-armes"
+          routerLinkActive="active"
+          class="btn btn-dark"
+          >Créer armes</a
+        >
+      </div>
+      <div class="image-wrapper">
+        <img
+          src="https://sm.ign.com/t/ign_it/screenshot/default/blob_nr4g.1200.jpg"
+          alt="Image armées"
+          class="image-armees"
+        />
+        <a
+          routerLink="/creation-armees"
+          routerLinkActive="active"
+          class="btn btn-dark"
+          >Créer armées</a
+        >
+      </div>
+    </div>
+  </div>
+</body>
